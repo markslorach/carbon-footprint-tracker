@@ -1,17 +1,28 @@
-import React from 'react'
-
-const SearchForm = () => {
+import React, {useState} from 'react'
 
 
+const SearchForm = ({onSubmit, initialValue = ""}) => {
 
+const [text, setText] = useState(initialValue);
 
+const updateText = (event) => {
+  setText(event.target.value);
+}
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  onSubmit(text)
+}
 
   return (
     <div>
     <h2>SearchForm</h2>
-    <form>
-    <input type='text'/>
-    <input type='text'/>
+    <form onSubmit={handleSubmit}>
+    <label>Origin: </label>
+    <input onChange={updateText} type='text'/> 
+    <label>Destination: </label>
+    <input onChange={updateText} type='text'/>
+    <input type='date'/>
     <button>Search</button>
     </form>
     </div>

@@ -29,7 +29,7 @@ const MainContainer = () => {
     <div>
     <h1>Main Container</h1>
     <SearchForm/>
-    <FlightList userFlights={userFlights} />
+    <FlightList userFlights={userFlights} removeFlight={removeFlight} />
     </div>
   )
 }

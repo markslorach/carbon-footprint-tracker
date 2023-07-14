@@ -1,10 +1,10 @@
 import React from 'react'
 import FlightItem from './FlightItem'
 
-const FlightList = ({ userFlights }) => {
+const FlightList = ({ userFlights, removeFlight }) => {
 
   const allFlights = userFlights.map((flight, index) => {
-    return <FlightItem key={index} flight={flight} />
+    return <FlightItem key={index} flight={flight} removeFlight={removeFlight} />
     // console.log(flight.footprint)
   });
 

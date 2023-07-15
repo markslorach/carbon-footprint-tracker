@@ -12,8 +12,8 @@ const MainContainer = () => {
 
     const API_KEY = "7a2256a8afcf280c53cb5763"
 
- function getFlightEmissions(destination) {
-   let URL = `https://api.goclimate.com/v1/flight_footprint?segments[0][origin]=ARN&segments[0][destination]=${destination}&segments[1][origin]=BCN&segments[1][destination]=ARN&cabin_class=economy`
+ function getFlightEmissions(origin, destination) {
+   let URL = `https://api.goclimate.com/v1/flight_footprint?segments[0][origin]=${origin}&segments[0][destination]=${destination}&segments[1][origin]=${destination}&segments[1][destination]=${origin}&cabin_class=economy`
    fetch(URL, {method:'GET', headers: {'Authorization': 'Basic ' + btoa(API_KEY)}}).then(response => {
      response.json().then(result => {
          console.log(result);
@@ -21,7 +21,7 @@ const MainContainer = () => {
    })
  }
  
- getFlightEmissions("GLA")
+ getFlightEmissions("GLA","BCN")
 
 
     useEffect(() => {

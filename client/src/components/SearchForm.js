@@ -11,7 +11,7 @@ const SearchForm = ({setOrigin, setDestination, origin, destination, getFlightEm
   })
   const airports = [
     { code: 'ABZ', name: 'Aberdeen Airport' },
-    { code: 'GLA', name: 'Glasgow Internation Airport' },
+    { code: 'GLA', name: 'Glasgow International Airport' },
   ];
 
 
@@ -48,19 +48,37 @@ return (
   <h3>Search Form</h3>
 
   <form onSubmit={handleSubmit} >
-  <label>Origin: 
-  <input type='text' onChange={handleOriginChange} value={origin}/>
-  </label>
+  <label>Origin:
+  <input
+    type="text"
+    onChange={handleOriginChange}
+    value={origin}
+    list="origin"
+  />
+  <datalist id="origin">
+    {airports.map(airport => (
+      <option key={airport.code} value={airport.code}>
+        {airport.name}
+      </option>
+    ))}
+  </datalist>
+</label>
 
-  <label>Destination: 
-  <input type='text' onChange={handleDestinationChange} value={destination}/>
-  </label>
-
-  {/* <datalist id='airportList'>
-    {airports.map(() => {
-      <option key={airports.code} value={airports.code} />
-    })}
-  </datalist> */}
+<label>Destination:
+  <input
+    type="text"
+    onChange={handleDestinationChange}
+    value={destination}
+    list="destination"
+  />
+  <datalist id="destination">
+    {airports.map(airport => (
+      <option key={airport.code} value={airport.code}>
+        {airport.name}
+      </option>
+    ))}
+  </datalist>
+</label>
 
  <button type='submit' name='submit'>Search</button>
 

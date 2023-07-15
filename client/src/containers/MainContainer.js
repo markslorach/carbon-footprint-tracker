@@ -38,7 +38,7 @@ const MainContainer = () => {
     const removeFlight = (id) => {
       const flightsToKeep = userFlights.filter(f => f._id !== id)
       setUserFlights(flightsToKeep);
-    }
+    };
 
     
 
@@ -61,7 +61,6 @@ const MainContainer = () => {
     <p>{emissions}</p>
     
     <FlightList addFlight={addFlight} userFlights={userFlights} removeFlight={removeFlight} />
-    
     </div>
   )
 }

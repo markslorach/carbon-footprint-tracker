@@ -6,13 +6,16 @@ import FlightList from '../components/FlightList';
 const MainContainer = () => {
 
     const [userFlights, setUserFlights] = useState([]);
+    const [origin, setOrigin] = useState('');
+    const [destination, setDestination] = useState('');
+    const [emissions, setEmissions] = useState(null);
+
 
     useEffect(() => {
       getFlights().then((allFlights) => {
         setUserFlights(allFlights);
       })
     }, []);
-
 
     const addFlight = (flight) => {
       setUserFlights([...userFlights, flight])
@@ -33,7 +36,6 @@ const MainContainer = () => {
     </div>
   )
 }
-
 
 
 

@@ -1,24 +1,20 @@
-import React from 'react'
-import FlightItem from './FlightItem'
+import React from "react";
+import FlightItem from "./FlightItem";
 
 const FlightList = ({ userFlights, removeFlight }) => {
-
+    
   const allFlights = userFlights.map((flight, index) => {
-    return <FlightItem key={index} flight={flight} removeFlight={removeFlight} />
-    // console.log(flight.footprint)
+    return (
+      <FlightItem key={index} flight={flight} removeFlight={removeFlight} />
+    );
   });
 
-
-
-
   return (
-
     <div>
-    <h2>FlightList</h2>
-    {allFlights}
+      <h2>FlightList</h2>
+      {allFlights}
     </div>
-  )
-
-}
+  );
+};
 
 export default FlightList;

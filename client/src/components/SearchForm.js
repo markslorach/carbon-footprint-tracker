@@ -16,25 +16,28 @@ const SearchForm = ({setOrigin, setDestination, origin, destination, getFlightEm
 
 
 // THIS BIT DOESNT WORK FYI
-  const onChange = (event) => {
-    const newFormData = Object.assign({}, formData);
-    newFormData[event.target.name] = event.target.value;
-    setFormData(newFormData)
-    setOrigin(event.target.value);
+  // const onChange = (event) => {
+  //   const newFormData = Object.assign({}, formData);
+  //   newFormData[event.target.name] = event.target.value;
+  //   setFormData(newFormData)
+  //   setOrigin(event.target.value);
     
+  // }
+
+  const handleDestinationChange = (event) => {
+    setDestination(event.target.value);
   }
 
-  // const handleDestinationChange = (event) => {
-  //   setDestination(event.target.value);
-  // }
+  const handleOriginChange = (event) => {
+    setOrigin(event.target.value);
+  }
 
   const handleSubmit = event => {
     event.preventDefault();
     getFlightEmissions(origin, destination)
-    postFlight(event).then((data) => {
-      addFlight(data)
-      
-    })
+    // postFlight(event).then((data) => {
+    //   addFlight(data)
+    // })
 
   }
 
@@ -46,11 +49,11 @@ return (
 
   <form onSubmit={handleSubmit} >
   <label>Origin: 
-  <input type='text' onChange={onChange} value={origin}/>
+  <input type='text' onChange={handleOriginChange} value={origin}/>
   </label>
 
   <label>Destination: 
-  <input type='text' onChange={onChange} value={destination}/>
+  <input type='text' onChange={handleDestinationChange} value={destination}/>
   </label>
 
   {/* <datalist id='airportList'>

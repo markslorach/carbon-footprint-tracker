@@ -1,24 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { postFlight } from '../Services/FlightService';
 
 
-const SearchForm = ({setOrigin, setDestination, origin, destination, getFlightEmissions}) => {
+const SearchForm = ({setOrigin, setDestination, origin, destination, getFlightEmissions, addFlight}) => {
 
+  const [formData, setFormData] = useState({
+    origin: "",
+    destination: "" 
+
+  })
   const airports = [
     { code: 'ABZ', name: 'Aberdeen Airport' },
     { code: 'GLA', name: 'Glasgow Internation Airport' },
   ];
 
-  const handleOriginChange = (event) => {
+
+// THIS BIT DOESNT WORK FYI
+  const onChange = (event) => {
+    const newFormData = Object.assign({}, formData);
+    newFormData[event.target.name] = event.target.value;
+    setFormData(newFormData)
     setOrigin(event.target.value);
+    
   }
 
-  const handleDestinationChange = (event) => {
-    setDestination(event.target.value);
-  }
+  // const handleDestinationChange = (event) => {
+  //   setDestination(event.target.value);
+  // }
 
   const handleSubmit = event => {
     event.preventDefault();
-    getFlightEmissions(origin, destination);
+    getFlightEmissions(origin, destination)
+    postFlight(event).then((data) => {
+      addFlight(data)
+      
+    })
+
   }
 
 
@@ -29,11 +46,11 @@ return (
 
   <form onSubmit={handleSubmit} >
   <label>Origin: 
-  <input type='text' onChange={handleOriginChange} value={origin}/>
+  <input type='text' onChange={onChange} value={origin}/>
   </label>
 
   <label>Destination: 
-  <input type='text' onChange={handleDestinationChange} value={destination}/>
+  <input type='text' onChange={onChange} value={destination}/>
   </label>
 
   {/* <datalist id='airportList'>

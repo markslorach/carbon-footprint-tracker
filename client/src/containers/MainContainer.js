@@ -16,7 +16,8 @@ const MainContainer = () => {
    let URL = `https://api.goclimate.com/v1/flight_footprint?segments[0][origin]=${origin}&segments[0][destination]=${destination}&segments[1][origin]=${destination}&segments[1][destination]=${origin}&cabin_class=economy`
    fetch(URL, {method:'GET', headers: {'Authorization': 'Basic ' + btoa(API_KEY)}}).then(response => {
      response.json().then(result => {
-         console.log(result);
+        //  console.log(result);
+         setEmissions(result.footprint); 
      })
    })
  }
@@ -39,6 +40,9 @@ const MainContainer = () => {
       setUserFlights(flightsToKeep);
     }
 
+    
+
+
 
 
   return (
@@ -50,8 +54,14 @@ const MainContainer = () => {
         destination={destination}
         setDestination={setDestination}
         getFlightEmissions={getFlightEmissions}
+        emissions={emissions}
     />
-    <FlightList userFlights={userFlights} removeFlight={removeFlight} />
+    <p>{origin}</p>
+    <p>{destination}</p>
+    <p>{emissions}</p>
+    
+    <FlightList addFlight={addFlight} userFlights={userFlights} removeFlight={removeFlight} />
+    
     </div>
   )
 }

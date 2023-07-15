@@ -21,7 +21,7 @@ const MainContainer = () => {
    })
  }
  
- getFlightEmissions("GLA","BCN")
+//  getFlightEmissions("ABZ","MBW")
 
 
     useEffect(() => {
@@ -44,7 +44,13 @@ const MainContainer = () => {
   return (
     <div>
     <h1>Main Container</h1>
-    <SearchForm/>
+    <SearchForm 
+        origin={origin}
+        setOrigin={setOrigin}
+        destination={destination}
+        setDestination={setDestination}
+        getFlightEmissions={getFlightEmissions}
+    />
     <FlightList userFlights={userFlights} removeFlight={removeFlight} />
     </div>
   )

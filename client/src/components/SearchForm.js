@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import airports from '../data/airports';
 import { postFlight } from '../Services/FlightService';
 
 
@@ -7,13 +8,7 @@ const SearchForm = ({setOrigin, setDestination, origin, destination, getFlightEm
   const [formData, setFormData] = useState({
     origin: "",
     destination: "" 
-
   })
-  const airports = [
-    { code: 'ABZ', name: 'Aberdeen Airport' },
-    { code: 'GLA', name: 'Glasgow International Airport' },
-  ];
-
 
 // THIS BIT DOESNT WORK FYI
   // const onChange = (event) => {
@@ -38,7 +33,6 @@ const SearchForm = ({setOrigin, setDestination, origin, destination, getFlightEm
     // postFlight(event).then((data) => {
     //   addFlight(data)
     // })
-
   }
 
 
@@ -46,8 +40,9 @@ const SearchForm = ({setOrigin, setDestination, origin, destination, getFlightEm
 return (
   <div>
   <h3>Search Form</h3>
+  
+  <form onSubmit={handleSubmit}>
 
-  <form onSubmit={handleSubmit} >
   <label>Origin:
   <input
     type="text"
@@ -81,7 +76,6 @@ return (
 </label>
 
  <button type='submit' name='submit'>Search</button>
-
 
   </form>
   </div>

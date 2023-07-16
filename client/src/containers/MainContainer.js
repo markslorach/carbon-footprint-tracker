@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import SearchForm from "../components/SearchForm";
 import { getFlights } from "../Services/FlightService";
 import FlightList from "../components/FlightList";
+import FlightSearchResult from "../components/FlightSearchResult";
 
 const MainContainer = () => {
   const [userFlights, setUserFlights] = useState([]);
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [emissions, setEmissions] = useState(null);
+  const [searchSuccessful, setSearchSuccessful] = useState(false);
 
   const API_KEY = "7a2256a8afcf280c53cb5763";
 
@@ -20,9 +22,19 @@ const MainContainer = () => {
       response.json().then((result) => {
         console.log(result);
         setEmissions(result.footprint);
+        setSearchSuccessful(true);
       });
     });
   }
+
+  const addSearchedFlight = () => {
+    const newFlight = {
+      origin: origin,
+      destination: destination,
+      footprint: emissions
+    };
+    addFlight(newFlight)
+  };
 
   useEffect(() => {
     getFlights().then((allFlights) => {
@@ -41,7 +53,7 @@ const MainContainer = () => {
 
   return (
     <div>
-      <h1>Main Container</h1>
+      <h2>Main Container</h2>
       <SearchForm
         origin={origin}
         setOrigin={setOrigin}
@@ -50,9 +62,13 @@ const MainContainer = () => {
         getFlightEmissions={getFlightEmissions}
         emissions={emissions}
       />
-      <p>{origin}</p>
-      <p>{destination}</p>
-      <p>{emissions}</p>
+      <FlightSearchResult
+        origin={origin}
+        destination={destination}
+        emissions={emissions}
+        searchSuccessful={searchSuccessful}
+        addSearchedFlight={addSearchedFlight}
+      />
 
       <FlightList
         addFlight={addFlight}

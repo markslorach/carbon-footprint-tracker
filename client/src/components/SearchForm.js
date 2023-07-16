@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import airports from "../data/airports";
-import { postFlight } from "../Services/FlightService";
 
 const SearchForm = ({
   setOrigin,
@@ -8,36 +7,24 @@ const SearchForm = ({
   origin,
   destination,
   getFlightEmissions,
-  addFlight,
 }) => {
-  const [formData, setFormData] = useState({
-    origin: "",
-    destination: "",
-  });
 
-  // THIS BIT DOESNT WORK FYI
-  // const onChange = (event) => {
-  //   const newFormData = Object.assign({}, formData);
-  //   newFormData[event.target.name] = event.target.value;
-  //   setFormData(newFormData)
-  //   setOrigin(event.target.value);
-
-  // }
+  const [inputOrigin, setInputOrigin] = useState(origin);
+  const [inputDestination, setInputDestination] = useState(destination);
 
   const handleDestinationChange = (event) => {
-    setDestination(event.target.value);
+    setInputDestination(event.target.value);
   };
 
   const handleOriginChange = (event) => {
-    setOrigin(event.target.value);
+    setInputOrigin(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    getFlightEmissions(origin, destination);
-    // postFlight(event).then((data) => {
-    //   addFlight(data)
-    // })
+    setOrigin(inputOrigin);
+    setDestination(inputDestination);
+    getFlightEmissions(inputOrigin, inputDestination);
   };
 
   return (
@@ -50,7 +37,7 @@ const SearchForm = ({
           <input
             type="text"
             onChange={handleOriginChange}
-            value={origin}
+            value={inputOrigin}
             list="origin"
           />
           <datalist id="origin">
@@ -72,7 +59,7 @@ const SearchForm = ({
           <input
             type="text"
             onChange={handleDestinationChange}
-            value={destination}
+            value={inputDestination}
             list="destination"
           />
           <datalist id="destination">
@@ -82,11 +69,6 @@ const SearchForm = ({
               </option>
             ))}
           </datalist>
-        </label>
-
-        <label>
-          Return Date:
-          <input type="date" />
         </label>
 
         <button type="submit" name="submit">

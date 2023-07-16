@@ -12,6 +12,8 @@ const FlightItem = ({ flight, removeFlight }) => {
   return (
     <div>
       <h2>Flight Deets</h2>
+      <p>{flight.origin}</p>
+      <p>{flight.destination}</p>
       <p>{flight.footprint}</p>
       <button onClick={handleDelete}>Delete Trip</button>
     </div>

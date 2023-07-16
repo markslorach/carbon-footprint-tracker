@@ -42,42 +42,55 @@ return (
   <h3>Search Form</h3>
   
   <form onSubmit={handleSubmit}>
+  <label>
+    Origin:
+    <input
+      type="text"
+      onChange={handleOriginChange}
+      value={origin}
+      list="origin"
+    />
+    <datalist id="origin">
+      {airports.map((airport) => (
+        <option key={airport.code} value={airport.code}>
+          {airport.name}
+        </option>
+      ))}
+    </datalist>
+  </label>
 
-  <label>Origin:
-  <input
-    type="text"
-    onChange={handleOriginChange}
-    value={origin}
-    list="origin"
-  />
-  <datalist id="origin">
-    {airports.map(airport => (
-      <option key={airport.code} value={airport.code}>
-        {airport.name}
-      </option>
-    ))}
-  </datalist>
-</label>
+  <label>
+    Origin Date:
+    <input type="date" />
+  </label>
 
-<label>Destination:
-  <input
-    type="text"
-    onChange={handleDestinationChange}
-    value={destination}
-    list="destination"
-  />
-  <datalist id="destination">
-    {airports.map(airport => (
-      <option key={airport.code} value={airport.code}>
-        {airport.name}
-      </option>
-    ))}
-  </datalist>
-</label>
+  <label>
+    Destination:
+    <input
+      type="text"
+      onChange={handleDestinationChange}
+      value={destination}
+      list="destination"
+    />
+    <datalist id="destination">
+      {airports.map((airport) => (
+        <option key={airport.code} value={airport.code}>
+          {airport.name}
+        </option>
+      ))}
+    </datalist>
+  </label>
 
- <button type='submit' name='submit'>Search</button>
+  <label>
+    Destination Date:
+    <input type="date" />
+  </label>
 
-  </form>
+  <button type="submit" name="submit">
+    Search
+  </button>
+</form>
+
   </div>
 
 

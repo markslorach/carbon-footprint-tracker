@@ -85,8 +85,8 @@ const MainContainer = () => {
                               removeFlight={removeFlight}
                               setDate={setDate}
                               date={date}
-                              data={chartData} 
-                              userFlights={userFlights}/> }/>
+                             
+                              /> }/>
       <Route path="/about" element={< About/> }/>
       <Route path="/flightlist" element={< FlightList  userFlights={userFlights}       removeFlight={removeFlight} />}/>
     </ Routes>

@@ -3,11 +3,13 @@ import SearchForm from "../components/SearchForm";
 import { getFlights, postFlight } from "../Services/FlightService";
 import FlightList from "../components/FlightList";
 import FlightSearchResult from "../components/FlightSearchResult";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import About from "../components/About";
 import Home from "../components/Home";
-
+import UserGraph from "../components/UserGraph";
+import Chart from 'chart.js/auto';
 
 
 const MainContainer = () => {
@@ -82,7 +84,9 @@ const MainContainer = () => {
                               userFlights={userFlights}
                               removeFlight={removeFlight}
                               setDate={setDate}
-                              date={date}/> }/>
+                              date={date}
+                             
+                              /> }/>
       <Route path="/about" element={< About/> }/>
       <Route path="/flightlist" element={< FlightList  userFlights={userFlights}       removeFlight={removeFlight} />}/>
     </ Routes>

@@ -4,11 +4,6 @@ import FlightList from "./FlightList";
 import SearchForm from "./SearchForm";
 import UserGraph from "./UserGraph";
 
-
-
-
-
-
 const Home = ({ setDate, date, origin, setOrigin, destination, setDestination, getFlightEmissions, emissions, searchSuccessful, addSearchedFlight, addFlight, userFlights, removeFlight}) => {
 
     console.log(
@@ -16,7 +11,6 @@ const Home = ({ setDate, date, origin, setOrigin, destination, setDestination, g
     )
 
     const data = [2,3,4,5]
-
 
 return (
 

@@ -8,7 +8,7 @@ import SearchForm from "./SearchForm";
 
 
 
-const Home = ({origin, setOrigin, destination, setDestination, getFlightEmissions, emissions, searchSuccessful, addSearchedFlight, addFlight, userFlights, removeFlight}) => {
+const Home = ({ setDate, date, origin, setOrigin, destination, setDestination, getFlightEmissions, emissions, searchSuccessful, addSearchedFlight, addFlight, userFlights, removeFlight}) => {
 
     console.log(
         {origin, setOrigin, destination, setDestination, getFlightEmissions, emissions }
@@ -23,6 +23,7 @@ return (
     setOrigin={setOrigin}
     destination={destination}
     setDestination={setDestination}
+    setDate={setDate}
     getFlightEmissions={getFlightEmissions}
  />
 
@@ -32,6 +33,7 @@ return (
     emissions={emissions}
     searchSuccessful={searchSuccessful}
     addSearchedFlight={addSearchedFlight}
+    date={date}
 /> 
 
 <FlightList

@@ -6,11 +6,14 @@ const SearchForm = ({
   setDestination,
   origin,
   destination,
+  date,
   getFlightEmissions,
+  setDate
 }) => {
 
   const [inputOrigin, setInputOrigin] = useState(origin);
   const [inputDestination, setInputDestination] = useState(destination);
+  const [inputDate, setInputDate] = useState(date);
 
   const handleDestinationChange = (event) => {
     setInputDestination(event.target.value);
@@ -20,10 +23,15 @@ const SearchForm = ({
     setInputOrigin(event.target.value);
   };
 
+  const handleDateChange = (event) => {
+    setInputDate(event.target.value);
+  };
+
   const handleSubmit = (event) => {
     
     setOrigin(inputOrigin);
     setDestination(inputDestination);
+    setDate(inputDate);
     getFlightEmissions(inputOrigin, inputDestination);
     event.preventDefault()
 
@@ -56,7 +64,7 @@ const SearchForm = ({
 
         <label>
           Departure Date:
-          <input type="date" />
+          <input type="date" onChange={handleDateChange} value={inputDate}/>
         </label>
 
         <label>

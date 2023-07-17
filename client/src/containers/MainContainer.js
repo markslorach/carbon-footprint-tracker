@@ -10,6 +10,7 @@ const MainContainer = () => {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [emissions, setEmissions] = useState(null);
+  const [date, setDate] = useState("");
   const [searchSuccessful, setSearchSuccessful] = useState(false);
 
   const API_KEY = "7a2256a8afcf280c53cb5763";
@@ -32,12 +33,10 @@ const MainContainer = () => {
     const newFlight = {
       origin: origin,
       destination: destination,
-      footprint: emissions
+      footprint: emissions,
+      date: date
     };
-    
-    postFlight(newFlight).then(addFlight(newFlight))
-    // event.preventDefault()
-    
+    postFlight(newFlight).then(addFlight(newFlight)) 
   };
   
 
@@ -66,11 +65,13 @@ const MainContainer = () => {
         setDestination={setDestination}
         getFlightEmissions={getFlightEmissions}
         emissions={emissions}
+        setDate={setDate}
       />
       <FlightSearchResult
         origin={origin}
         destination={destination}
         emissions={emissions}
+        date={date}
         searchSuccessful={searchSuccessful}
         addSearchedFlight={addSearchedFlight}
       />

@@ -33,11 +33,11 @@ return (
     date={date}
 /> 
 
-<FlightList
+{/* <FlightList
     addFlight={addFlight}
     userFlights={userFlights}
     removeFlight={removeFlight}
-/> 
+/>  */}
 
 <UserGraph data={data} userFlights={userFlights}/>
 

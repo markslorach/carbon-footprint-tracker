@@ -3,6 +3,11 @@ import SearchForm from "../components/SearchForm";
 import { getFlights, postFlight } from "../Services/FlightService";
 import FlightList from "../components/FlightList";
 import FlightSearchResult from "../components/FlightSearchResult";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import About from "../components/About";
+import Home from "../components/Home";
+
 
 
 const MainContainer = () => {
@@ -56,32 +61,38 @@ const MainContainer = () => {
     setUserFlights(flightsToKeep);
   };
 
-  return (
-    <div>
-      <h2>Main Container</h2>
-      <SearchForm
-        origin={origin}
-        setOrigin={setOrigin}
-        destination={destination}
-        setDestination={setDestination}
-        getFlightEmissions={getFlightEmissions}
-        emissions={emissions}
-      />
-      <FlightSearchResult
-        origin={origin}
-        destination={destination}
-        emissions={emissions}
-        searchSuccessful={searchSuccessful}
-        addSearchedFlight={addSearchedFlight}
-      />
+ 
 
-      <FlightList
-        addFlight={addFlight}
-        userFlights={userFlights}
-        removeFlight={removeFlight}
-      />
-    </div>
+  return (
+
+<>
+ <Router>
+    <NavBar />
+
+    <Routes>
+      <Route path="/" element={< Home  
+                              origin={origin}
+                              setOrigin={setOrigin}
+                              destination={destination}
+                              setDestination={setDestination}
+                              getFlightEmissions={getFlightEmissions}
+                              emissions={emissions}
+                              searchSuccessful={searchSuccessful}
+                              addSearchedFlight={addSearchedFlight}
+                              addFlight={addFlight}
+                              userFlights={userFlights}
+                              removeFlight={removeFlight}/> }/>
+      <Route path="/about" element={< About/> }/>
+      <Route path="/flightlist" element={< FlightList  userFlights={userFlights}       removeFlight={removeFlight} />}/>
+    </ Routes>
+
+    </Router> 
+  
+  
+   
+    </>
+  
   );
-};
+}
 
 export default MainContainer;

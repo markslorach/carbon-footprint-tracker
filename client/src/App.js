@@ -1,14 +1,12 @@
-import './App.css';
-import NavBar from './components/NavBar';
-import MainContainer from './containers/MainContainer';
+import React from 'react'
+import MainContainer from './containers/MainContainer'
 
-function App() {
+const app = () => {
   return (
-    <>
-    <NavBar />
-    <MainContainer />
-    </>
-  );
+    <div>
+      <MainContainer/>
+      </div>
+  )
 }
 
-export default App;
+export default app

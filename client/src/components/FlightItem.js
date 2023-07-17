@@ -2,8 +2,12 @@ import React from "react";
 import { deleteFlight } from "../Services/FlightService";
 import MainContainer from "../containers/MainContainer";
 
+<<<<<<< HEAD
 const FlightItem = ({ flight, removeFlight}) => {
   // console.log(flight.footprint)
+=======
+const FlightItem = ({ flight, removeFlight, viewTrip }) => {
+>>>>>>> main
     
   const handleDelete = () => {
     deleteFlight(flight._id).then(() => {
@@ -12,6 +16,7 @@ const FlightItem = ({ flight, removeFlight}) => {
     });
   };
 
+<<<<<<< HEAD
 //   const treesNeeded = () => {
 //     // let flightFootprint = flight.footprint
 //     // var footprint = flightFootprint;
@@ -26,6 +31,11 @@ const FlightItem = ({ flight, removeFlight}) => {
   
   
 
+=======
+  const handleViewTrip = () => {
+    viewTrip(flight);
+  }
+>>>>>>> main
 
   return (
     <div>
@@ -37,7 +47,7 @@ const FlightItem = ({ flight, removeFlight}) => {
       <p>{flight.footprint * 0.7 / 21}</p>
       
       <button onClick={handleDelete}>Delete Trip</button>
-      <button>View Trip</button>
+      <button onClick={handleViewTrip}>View Trip</button>
     </div>
   );
 };

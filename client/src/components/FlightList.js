@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import FlightItem from "./FlightItem";
+import FlightDetail from "./FlightDetail";
 
 const FlightList = ({ userFlights, removeFlight }) => {
-    
+  const [selectedTrip, setSelectedTrip] = useState(null);
+
+  const viewTrip = (flight) => {
+    setSelectedTrip(flight);
+  };
+
   const allFlights = userFlights.map((flight, index) => {
     return (
-      <FlightItem key={index} flight={flight} removeFlight={removeFlight} />
+      <FlightItem
+        key={index}
+        flight={flight}
+        removeFlight={removeFlight}
+        viewTrip={viewTrip}
+      />
     );
   });
 
@@ -14,9 +25,9 @@ const FlightList = ({ userFlights, removeFlight }) => {
       <h2>FlightList</h2>
       <p>My Trips</p>
       {allFlights}
+      {selectedTrip && <FlightDetail flight={selectedTrip} />}
     </div>
   );
 };
 
 export default FlightList;
- 

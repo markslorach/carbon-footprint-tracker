@@ -14,8 +14,8 @@ export const postFlight = (payload) => {
     .then(res => res.json())
 }
 
-export const deleteFlight = (id) => {
-    return fetch(baseURL + id, {
+export const deleteFlight = (_id) => {
+    return fetch(baseURL + _id, {
         method: 'DELETE'
     })
 }

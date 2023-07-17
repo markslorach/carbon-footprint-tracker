@@ -7,6 +7,7 @@ const FlightSearchResult = ({
   searchSuccessful,
   addSearchedFlight
 }) => {
+    
   return (
     <div>
       <p>{origin}</p>

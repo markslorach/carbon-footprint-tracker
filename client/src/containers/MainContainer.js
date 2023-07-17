@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import SearchForm from "../components/SearchForm";
-import { getFlights } from "../Services/FlightService";
+import { getFlights, postFlight } from "../Services/FlightService";
 import FlightList from "../components/FlightList";
 import FlightSearchResult from "../components/FlightSearchResult";
+
 
 const MainContainer = () => {
   const [userFlights, setUserFlights] = useState([]);
@@ -33,8 +34,12 @@ const MainContainer = () => {
       destination: destination,
       footprint: emissions
     };
-    addFlight(newFlight)
+    
+    postFlight(newFlight).then(addFlight(newFlight))
+    // event.preventDefault()
+    
   };
+  
 
   useEffect(() => {
     getFlights().then((allFlights) => {

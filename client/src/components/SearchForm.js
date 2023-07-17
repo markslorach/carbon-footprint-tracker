@@ -21,17 +21,22 @@ const SearchForm = ({
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    
     setOrigin(inputOrigin);
     setDestination(inputDestination);
     getFlightEmissions(inputOrigin, inputDestination);
+    event.preventDefault()
+
   };
+//not working at the moment 
+// const clearForm = () => {
+//   document.getElementById("form").reset();
 
   return (
     <div>
       <h3>Search Form</h3>
 
-      <form onSubmit={handleSubmit}>
+      <form id = "form" onSubmit={handleSubmit}>
         <label>
           Origin:
           <input
@@ -71,7 +76,7 @@ const SearchForm = ({
           </datalist>
         </label>
 
-        <button type="submit" name="submit">
+        <button type="submit" name="submit" >
           Search
         </button>
       </form>

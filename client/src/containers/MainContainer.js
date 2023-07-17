@@ -3,14 +3,21 @@ import SearchForm from "../components/SearchForm";
 import { getFlights, postFlight } from "../Services/FlightService";
 import FlightList from "../components/FlightList";
 import FlightSearchResult from "../components/FlightSearchResult";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import About from "../components/About";
+import Home from "../components/Home";
 import UserGraph from "../components/UserGraph";
 import Chart from 'chart.js/auto';
+
 
 const MainContainer = () => {
   const [userFlights, setUserFlights] = useState([]);
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [emissions, setEmissions] = useState(null);
+  const [date, setDate] = useState("");
   const [searchSuccessful, setSearchSuccessful] = useState(false);
 
   const API_KEY = "7a2256a8afcf280c53cb5763";
@@ -33,12 +40,10 @@ const MainContainer = () => {
     const newFlight = {
       origin: origin,
       destination: destination,
-      footprint: emissions
+      footprint: emissions,
+      date: date
     };
-    
-    postFlight(newFlight).then(addFlight(newFlight))
-    // event.preventDefault()
-    
+    postFlight(newFlight).then(addFlight(newFlight)) 
   };
   
 
@@ -57,35 +62,42 @@ const MainContainer = () => {
     setUserFlights(flightsToKeep);
   };
 
-  const chartData = [2,3,4,5]
+ 
 
   return (
-    <div>
-      <h2>Main Container</h2>
-      <SearchForm
-        origin={origin}
-        setOrigin={setOrigin}
-        destination={destination}
-        setDestination={setDestination}
-        getFlightEmissions={getFlightEmissions}
-        emissions={emissions}
-      />
-      <FlightSearchResult
-        origin={origin}
-        destination={destination}
-        emissions={emissions}
-        searchSuccessful={searchSuccessful}
-        addSearchedFlight={addSearchedFlight}
-      />
 
-      <FlightList
-        addFlight={addFlight}
-        userFlights={userFlights}
-        removeFlight={removeFlight}
-      />
-      <UserGraph data={chartData} userFlights={userFlights}/>
-    </div>
+<>
+ <Router>
+    <NavBar />
+
+    <Routes>
+      <Route path="/" element={< Home  
+                              origin={origin}
+                              setOrigin={setOrigin}
+                              destination={destination}
+                              setDestination={setDestination}
+                              getFlightEmissions={getFlightEmissions}
+                              emissions={emissions}
+                              searchSuccessful={searchSuccessful}
+                              addSearchedFlight={addSearchedFlight}
+                              addFlight={addFlight}
+                              userFlights={userFlights}
+                              removeFlight={removeFlight}
+                              setDate={setDate}
+                              date={date}
+                              data={chartData} 
+                              userFlights={userFlights}/> }/>
+      <Route path="/about" element={< About/> }/>
+      <Route path="/flightlist" element={< FlightList  userFlights={userFlights}       removeFlight={removeFlight} />}/>
+    </ Routes>
+
+    </Router> 
+  
+  
+   
+    </>
+  
   );
-};
+}
 
 export default MainContainer;

@@ -12,9 +12,11 @@ const FlightList = ({ userFlights, removeFlight }) => {
   return (
     <div>
       <h2>FlightList</h2>
+      <p>My Trips</p>
       {allFlights}
     </div>
   );
 };
 
 export default FlightList;
+ 

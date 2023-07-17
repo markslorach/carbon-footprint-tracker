@@ -3,7 +3,8 @@ import SearchForm from "../components/SearchForm";
 import { getFlights, postFlight } from "../Services/FlightService";
 import FlightList from "../components/FlightList";
 import FlightSearchResult from "../components/FlightSearchResult";
-
+import UserGraph from "../components/UserGraph";
+import Chart from 'chart.js/auto';
 
 const MainContainer = () => {
   const [userFlights, setUserFlights] = useState([]);
@@ -56,6 +57,8 @@ const MainContainer = () => {
     setUserFlights(flightsToKeep);
   };
 
+  const chartData = [2,3,4,5]
+
   return (
     <div>
       <h2>Main Container</h2>
@@ -80,6 +83,7 @@ const MainContainer = () => {
         userFlights={userFlights}
         removeFlight={removeFlight}
       />
+      <UserGraph data={chartData} userFlights={userFlights}/>
     </div>
   );
 };

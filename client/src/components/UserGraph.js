@@ -18,7 +18,7 @@ const UserGraph = ({userFlights}) => {
     const sortedFlights = flights.sort(function(a, b) {
       var c = new Date(a.date);
       var d = new Date(b.date);
-      return c-d;
+      return d-c;
   });
     console.log(`flights sorted`)
     console.log(sortedFlights)
@@ -42,8 +42,9 @@ const UserGraph = ({userFlights}) => {
         tooltip:{
           callbacks: {
             beforeTitle: function(context){
-              const index = context[0].datasetIndex
-              return console.log(sortedFlights[index])
+              let index = context[0].dataIndex
+              // return console.log(context[0].dataIndex)
+              return `${(sortedFlights[index].origin)} => ${(sortedFlights[index].destination)}`
             },
             title: function(context){
               return null;

@@ -41,10 +41,40 @@ const UserGraph = ({userFlights}) => {
       labels: labels,
       datasets: [
         {
-
           label: "Your Footprint",
-          backgroundColor: "rgb(255, 99, 132)",
-          borderColor: "rgb(255, 99, 132)",
+          backgroundColor: (context) => {
+            const bgColor = [
+              "rgb(237, 67, 64, 0.65)",
+              "rgb(252, 108, 40, 0.65)",
+              "rgb(122, 217, 72, 0.65)"
+            ]
+            if(!context.chart.chartArea){
+              return;
+            }
+            const {ctx, data, chartArea: {top, bottom}} = context.chart;
+            const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+            gradientBg.addColorStop(0, bgColor[0])
+            gradientBg.addColorStop(0.3, bgColor[1])
+            gradientBg.addColorStop(1, bgColor[2])
+            return gradientBg
+          },
+          borderColor: (context) => {
+            const bgColor = [
+              "rgb(237, 67, 64, 0.8)",
+              "rgb(252, 108, 40, 0.8)",
+              "rgb(122, 217, 72, 0.8)"
+            ]
+            if(!context.chart.chartArea){
+              return;
+            }
+            const {ctx, data, chartArea: {top, bottom}} = context.chart;
+            const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+            gradientBg.addColorStop(0, bgColor[0])
+            gradientBg.addColorStop(0.3, bgColor[1])
+            gradientBg.addColorStop(1, bgColor[2])
+            return gradientBg
+          },
+          pointBackgroundColor: "rgb(0, 0, 0)",
           data: footprintData,
           tension: 0.2,
           fill: true,
@@ -54,6 +84,22 @@ const UserGraph = ({userFlights}) => {
           }},
           {
             label: 'Private Jet Equivelant',
+            backgroundColor: (context) => {
+              const bgColor = [
+                "rgb(237, 67, 64, 0.65)",
+                "rgb(252, 108, 40, 0.65)",
+                "rgb(252, 108, 40, 0.2)"
+              ]
+              if(!context.chart.chartArea){
+                return;
+              }
+              const {ctx, data, chartArea: {top, bottom}} = context.chart;
+              const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+              gradientBg.addColorStop(0, bgColor[0])
+              gradientBg.addColorStop(0.7, bgColor[1])
+              gradientBg.addColorStop(1, bgColor[2])
+              return gradientBg
+            },
             data: privateJetFootprintData,
             borderWidth: 1,
             fill: true, 

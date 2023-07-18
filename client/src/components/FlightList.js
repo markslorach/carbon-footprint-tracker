@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import FlightItem from "./FlightItem";
 import FlightDetail from "./FlightDetail";
+import Modal from "react-modal";
 
 const FlightList = ({ userFlights, removeFlight }) => {
   const [selectedTrip, setSelectedTrip] = useState(null);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const viewTrip = (flight) => {
     setSelectedTrip(flight);
+    setIsOpen(true);
   };
+
+  function closeModal(){
+    setIsOpen(false);
+  }
 
   const allFlights = userFlights.map((flight, index) => {
     return (
@@ -25,7 +32,10 @@ const FlightList = ({ userFlights, removeFlight }) => {
       <h2>FlightList</h2>
       <p>My Trips</p>
       {allFlights}
-      {selectedTrip && <FlightDetail flight={selectedTrip} />}
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <button onClick={closeModal}>close</button>
+        {selectedTrip && <FlightDetail flight={selectedTrip} />}
+      </Modal>
     </div>
   );
 };

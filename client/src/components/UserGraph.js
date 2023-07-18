@@ -2,6 +2,7 @@ import React from "react";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import 'chartjs-adapter-date-fns';
+import "./UserGraph.css";
 
 const UserGraph = ({userFlights}) => {
   
@@ -20,6 +21,8 @@ const UserGraph = ({userFlights}) => {
 })
 
     const options = {
+      responsive: true,
+      maintainAspectRatio: false,
       legend: {
         display: false,
         align: 'start',
@@ -114,8 +117,8 @@ const UserGraph = ({userFlights}) => {
     }
 
 return (
-    <div>
-      <Line data={data} options={options} />
+    <div className="user-graph-container"> 
+      <Line className="user-graph" data={data} options={options} />
     </div>
   );
 };

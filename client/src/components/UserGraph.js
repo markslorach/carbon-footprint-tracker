@@ -2,12 +2,26 @@ import React from "react";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import 'chartjs-adapter-date-fns';
+import './UserGraph.css'
 
 const UserGraph = ({userFlights}) => {
   
     const labels = userFlights.map((flight) => {
               return flight.date;
             })
+    const flights = userFlights.map((flight) => {
+      return flight
+    })
+    console.log(flights)
+    // flights.sort((a,b) => Date.parse(b) - Date.parse(a))
+
+    const sortedFlights = flights.sort(function(a, b) {
+      var c = new Date(a.date);
+      var d = new Date(b.date);
+      return c-d;
+  });
+    console.log(`flights sorted`)
+    console.log(sortedFlights)
 
     labels.sort((a,b) => Date.parse(b) - Date.parse(a))
 
@@ -19,7 +33,24 @@ const UserGraph = ({userFlights}) => {
       return flight.footprint * 100;
 })
 
+  const getOriginDestination = userFlights.filter((flight) => {
+    return `${flight.origin} ${flight.destination}`
+})
+
     const options = {
+      plugins: {
+        tooltip:{
+          callbacks: {
+            beforeTitle: function(context){
+              const index = context[0].datasetIndex
+              return console.log(sortedFlights[index])
+            },
+            title: function(context){
+              return null;
+            }
+          }
+        }
+      },
       responsive: true,
       maintainAspectRatio: false,
       legend: {

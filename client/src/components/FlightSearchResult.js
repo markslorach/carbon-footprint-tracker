@@ -6,7 +6,8 @@ const FlightSearchResult = ({
   emissions,
   date,
   searchSuccessful,
-  addSearchedFlight
+  addSearchedFlight,
+  arrivalDate
 }) => {
 
   return (
@@ -15,6 +16,7 @@ const FlightSearchResult = ({
       <p>{destination}</p>
       <p>{emissions}</p>
       <p>{date}</p>
+      <p>{arrivalDate}</p>
       {searchSuccessful && <button onClick={addSearchedFlight}>Add to My Trips</button>}
     </div>
   );

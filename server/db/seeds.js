@@ -4,7 +4,7 @@ db.dropDatabase();
 
 db.flights.insertMany([
     {
-        origin: "LAX",
+        origin: "GLA",
         destination: "JFK",
         footprint: 2200,
         date: "2023-07-13",
@@ -18,10 +18,11 @@ db.flights.insertMany([
         arrivalDate: "2023-07-13"
     },
     {
-        origin: "ABZ",
+        origin: "GLA",
         destination: "PEK",
         footprint: 4300,
         date: "2023-07-13",
         arrivalDate: "2023-07-13"
+
     }
 ]);

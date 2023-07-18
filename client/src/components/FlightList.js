@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import FlightItem from "./FlightItem";
 import FlightDetail from "./FlightDetail";
 import Modal from "react-modal";
+import UserGraph from "./UserGraph";
 
-const FlightList = ({ userFlights, removeFlight }) => {
+const FlightList = ({ userFlights, removeFlight, data }) => {
   const [selectedTrip, setSelectedTrip] = useState(null);
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -36,6 +37,8 @@ const FlightList = ({ userFlights, removeFlight }) => {
         <button onClick={closeModal}>close</button>
         {selectedTrip && <FlightDetail flight={selectedTrip} />}
       </Modal>
+
+      <UserGraph data={data} userFlights={userFlights}/> 
     </div>
   );
 };

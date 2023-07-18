@@ -15,7 +15,6 @@ const NavBar = () => {
       <li>
         <Link to="/FlightList">My Trips</Link>
       </li>
-      
     </ul>
   );
 }

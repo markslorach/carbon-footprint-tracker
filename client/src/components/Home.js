@@ -46,8 +46,8 @@ const Home = ({ setDate, date, origin, setOrigin, destination, setDestination, g
           arrivalDate={arrivalDate}
         />
       </Modal>
-      {/* <FlightList addFlight={addFlight} userFlights={userFlights} removeFlight={removeFlight}/> */}
-      <UserGraph data={data} userFlights={userFlights}/>
+
+      
     </div>
   );
 }

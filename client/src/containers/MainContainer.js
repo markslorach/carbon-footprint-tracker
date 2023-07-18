@@ -9,8 +9,7 @@ import NavBar from "../components/NavBar";
 import About from "../components/About";
 import Home from "../components/Home";
 import UserGraph from "../components/UserGraph";
-import Chart from 'chart.js/auto';
-
+import Chart from "chart.js/auto";
 
 const MainContainer = () => {
   const [userFlights, setUserFlights] = useState([]);
@@ -18,6 +17,7 @@ const MainContainer = () => {
   const [destination, setDestination] = useState("");
   const [emissions, setEmissions] = useState(null);
   const [date, setDate] = useState("");
+  const [arrivalDate, setArrivalDate] = useState("");
   const [searchSuccessful, setSearchSuccessful] = useState(false);
 
   const API_KEY = "7a2256a8afcf280c53cb5763";
@@ -41,11 +41,12 @@ const MainContainer = () => {
       origin: origin,
       destination: destination,
       footprint: emissions,
-      date: date
+      date: date,
+      arrivalDate: arrivalDate,
     };
-    postFlight(newFlight).then(addFlight(newFlight)) 
+
+    postFlight(newFlight).then(addFlight(newFlight));
   };
-  
 
   useEffect(() => {
     getFlights().then((allFlights) => {
@@ -62,41 +63,48 @@ const MainContainer = () => {
     setUserFlights(flightsToKeep);
   };
 
- 
-
   return (
+    <>
+      <Router>
+        <NavBar />
 
-<>
- <Router>
-    <NavBar />
-
-    <Routes>
-      <Route path="/" element={< Home  
-                              origin={origin}
-                              setOrigin={setOrigin}
-                              destination={destination}
-                              setDestination={setDestination}
-                              getFlightEmissions={getFlightEmissions}
-                              emissions={emissions}
-                              searchSuccessful={searchSuccessful}
-                              addSearchedFlight={addSearchedFlight}
-                              addFlight={addFlight}
-                              userFlights={userFlights}
-                              removeFlight={removeFlight}
-                              setDate={setDate}
-                              date={date}
-                              /> }/>
-      <Route path="/about" element={< About/> }/>
-      <Route path="/flightlist" element={< FlightList  userFlights={userFlights} removeFlight={removeFlight} />}/>
-    </Routes>
-
-    </Router> 
-  
-  
-   
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                origin={origin}
+                setOrigin={setOrigin}
+                destination={destination}
+                setDestination={setDestination}
+                getFlightEmissions={getFlightEmissions}
+                emissions={emissions}
+                searchSuccessful={searchSuccessful}
+                addSearchedFlight={addSearchedFlight}
+                addFlight={addFlight}
+                userFlights={userFlights}
+                removeFlight={removeFlight}
+                setDate={setDate}
+                date={date}
+                arrivalDate={arrivalDate}
+                setArrivalDate={setArrivalDate}
+              />
+            }
+          />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/flightlist"
+            element={
+              <FlightList
+                userFlights={userFlights}
+                removeFlight={removeFlight}
+              />
+            }
+          />
+        </Routes>
+      </Router>
     </>
-  
   );
-}
+};
 
 export default MainContainer;

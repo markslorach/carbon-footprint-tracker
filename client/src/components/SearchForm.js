@@ -8,12 +8,15 @@ const SearchForm = ({
   destination,
   date,
   getFlightEmissions,
-  setDate
+  setDate,
+  openModal,
+  arrivalDate,
+  setArrivalDate,
 }) => {
-
   const [inputOrigin, setInputOrigin] = useState(origin);
   const [inputDestination, setInputDestination] = useState(destination);
   const [inputDate, setInputDate] = useState(date);
+  const [inputArrivalDate, setInputArrivalDate] = useState(arrivalDate);
 
   const handleDestinationChange = (event) => {
     setInputDestination(event.target.value);
@@ -27,24 +30,28 @@ const SearchForm = ({
     setInputDate(event.target.value);
   };
 
+  const handleArrivalDateChange = (event) => {
+    setInputArrivalDate(event.target.value);
+  };
+
   const handleSubmit = (event) => {
-    
     setOrigin(inputOrigin);
     setDestination(inputDestination);
     setDate(inputDate);
+    setArrivalDate(inputArrivalDate);
     getFlightEmissions(inputOrigin, inputDestination);
-    event.preventDefault()
-
+    event.preventDefault();
+    openModal();
+    setInputOrigin("");
+    setInputDestination("");
+    setInputDate("");
+    setInputArrivalDate("");
   };
-//not working at the moment 
-// const clearForm = () => {
-//   document.getElementById("form").reset();
 
   return (
     <div>
       <h3>Search Form</h3>
-
-      <form id = "form" onSubmit={handleSubmit}>
+      <form id="form" onSubmit={handleSubmit}>
         <label>
           Origin:
           <input
@@ -61,12 +68,10 @@ const SearchForm = ({
             ))}
           </datalist>
         </label>
-
         <label>
           Departure Date:
-          <input type="date" onChange={handleDateChange} value={inputDate}/>
+          <input type="date" onChange={handleDateChange} value={inputDate} />
         </label>
-
         <label>
           Destination:
           <input
@@ -83,8 +88,15 @@ const SearchForm = ({
             ))}
           </datalist>
         </label>
-
-        <button type="submit" name="submit" >
+        <label>
+          Arrival Date:
+          <input
+            type="date"
+            onChange={handleArrivalDateChange}
+            value={inputArrivalDate}
+          />
+        </label>
+        <button type="submit" name="submit">
           Search
         </button>
       </form>

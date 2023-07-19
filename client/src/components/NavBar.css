@@ -31,9 +31,11 @@ li {
 
 #plant-a-tree {
   color: #07203c;
-  background-color: white;
-  padding: 10px;
   border-radius: 4px;
+}
+
+.nav-btn {
+  background-color: white;
 }
 
 .nav-links {

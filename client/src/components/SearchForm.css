@@ -55,7 +55,7 @@ input {
   border: solid 0px;
   border-radius: 6px;
   background-color: #0362e3;
-  margin-top: 36px;
+  margin-top: 37px;
   color: white;
   font-weight: bold;
   font-size: 17px;
@@ -122,10 +122,10 @@ form label {
     width: 300px;
   }
   .container {
-    margin-top: 150px;
+    margin-top: 110px;
   }
   form {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
   }
 }
 

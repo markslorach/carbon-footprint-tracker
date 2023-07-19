@@ -11,6 +11,8 @@ import Home from "../components/Home";
 import UserGraph from "../components/UserGraph";
 import Chart from "chart.js/auto";
 
+
+
 const MainContainer = () => {
   const [userFlights, setUserFlights] = useState([]);
   const [origin, setOrigin] = useState("");
@@ -18,7 +20,9 @@ const MainContainer = () => {
   const [emissions, setEmissions] = useState(null);
   const [date, setDate] = useState("");
   const [arrivalDate, setArrivalDate] = useState("");
-  const [searchSuccessful, setSearchSuccessful] = useState(false);
+  const [searchSuccessful, setSearchSuccessful] = useState
+  (false);
+
 
   const API_KEY = "7a2256a8afcf280c53cb5763";
 
@@ -88,6 +92,7 @@ const MainContainer = () => {
                 date={date}
                 arrivalDate={arrivalDate}
                 setArrivalDate={setArrivalDate}
+              
               />
             }
           />

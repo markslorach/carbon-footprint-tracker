@@ -4,6 +4,9 @@ import FlightList from "./FlightList";
 import SearchForm from "./SearchForm";
 import UserGraph from "./UserGraph";
 import Modal from 'react-modal';
+// import Map from './Map';
+import Map2 from './Map2';
+
 
 const Home = ({ setDate, date, origin, setOrigin, destination, setDestination, getFlightEmissions, emissions, searchSuccessful, addSearchedFlight, userFlights, arrivalDate, setArrivalDate }) => {
   const data = [2,3,4,5];
@@ -16,6 +19,11 @@ const Home = ({ setDate, date, origin, setOrigin, destination, setDestination, g
   function closeModal(){
     setIsOpen(false);
   }
+
+
+
+
+
 
   return (
     <div>
@@ -30,6 +38,8 @@ const Home = ({ setDate, date, origin, setOrigin, destination, setDestination, g
         openModal={openModal}
         arrivalDate={arrivalDate}
         setArrivalDate={setArrivalDate}
+       
+
       />
       <Modal
         isOpen={modalIsOpen}
@@ -46,6 +56,8 @@ const Home = ({ setDate, date, origin, setOrigin, destination, setDestination, g
           arrivalDate={arrivalDate}
         />
       </Modal>
+
+     <Map2/>
 
       
     </div>

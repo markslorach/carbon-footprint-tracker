@@ -9,7 +9,8 @@ const About = () => {
     <div className='northAmerica'>
         
     <a href=' https://onetreeplanted.org/collections/north-america' id='northAmercia'>
-    <img alt="North America" src="images/northamerica.jpeg"/></a>
+    <img alt="North America" src="images/northamerica.jpeg"/>
+   </a>
     </div>
 
     <div className='latinAmerica'>

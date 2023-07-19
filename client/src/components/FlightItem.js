@@ -25,7 +25,7 @@ const FlightItem = ({ flight, removeFlight, viewTrip }) => {
       <p>{flight.footprint}</p>
       <p>{flight.date}</p>
       <p>{flight.arrivalDate}</p>
-      <p>{(flight.footprint * 0.7) / 21}</p>
+      <p>{Math.round((flight.footprint * 0.7) / 21)}</p>
 
       <button onClick={handleDelete}>Delete Trip</button>
       <button onClick={handleViewTrip}>View Trip</button>

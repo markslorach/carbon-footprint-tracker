@@ -18,7 +18,9 @@ const FlightList = ({ userFlights, removeFlight, data }) => {
     setIsOpen(false);
   }
 
-  const allFlights = userFlights.map((flight, index) => {
+  const allFlights = userFlights
+  .sort((a, b) => new Date(b.date) - new Date(a.date))
+  .map((flight, index) => {
     return (
       <FlightItem
         key={index}

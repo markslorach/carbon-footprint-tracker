@@ -7,7 +7,8 @@ const FlightSearchResult = ({
   date,
   searchSuccessful,
   addSearchedFlight,
-  arrivalDate
+  arrivalDate,
+  closeModal
 }) => {
 
   return (
@@ -17,7 +18,16 @@ const FlightSearchResult = ({
       <p>{emissions}</p>
       <p>{date}</p>
       <p>{arrivalDate}</p>
-      {searchSuccessful && <button onClick={addSearchedFlight}>Add to My Trips</button>}
+      {searchSuccessful && (
+        <button
+          onClick={() => {
+            addSearchedFlight();
+            closeModal();
+          }}
+        >
+          Add to My Trips
+        </button>
+      )}
     </div>
   );
 };

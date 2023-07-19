@@ -72,6 +72,7 @@ const Home = ({
           addSearchedFlight={addSearchedFlight}
           date={date}
           arrivalDate={arrivalDate}
+          closeModal={closeModal}
         />
       </Modal>
       

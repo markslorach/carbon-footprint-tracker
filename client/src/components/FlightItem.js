@@ -1,6 +1,6 @@
 import React from "react";
 import { deleteFlight } from "../Services/FlightService";
-import MainContainer from "../containers/MainContainer";
+import './FlightItem.css'
 
 const FlightItem = ({ flight, removeFlight, viewTrip }) => {
 
@@ -18,17 +18,15 @@ const FlightItem = ({ flight, removeFlight, viewTrip }) => {
 
 
   return (
-    <div>
-      <h2>Flight Deets</h2>
-      <p>{flight.origin}</p>
-      <p>{flight.destination}</p>
-      <p>{flight.footprint}</p>
+    <div className="flight-item-container">
+      <p>{flight.origin} <i class="fa-solid fa-arrow-right fa-xs"></i> {flight.destination}</p>
+      <p>{flight.footprint}Kg of Co2</p>
       <p>{flight.date}</p>
       <p>{flight.arrivalDate}</p>
-      <p>{Math.round((flight.footprint * 0.7) / 21)}</p>
+      <p>{Math.round((flight.footprint * 0.7) / 21)} <i class="fa-solid fa-tree" style={{color: '#79d985'}}></i></p>
 
-      <button onClick={handleDelete}>Delete Trip</button>
-      <button onClick={handleViewTrip}>View Trip</button>
+      <button className="delete button"onClick={handleDelete}>Delete Trip</button>
+      <button className="view button" onClick={handleViewTrip}>View Trip</button>
     </div>
   );
 };

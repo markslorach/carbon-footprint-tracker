@@ -3,11 +3,11 @@ import './About.css';
 const About = () => {
   return (
     <>
-    <h3>BY REGION</h3>
+    <h1 className="region-title">Select a region to plant a tree.</h1>
+
     <div className='aboutContainer'>
 
     <div className='northAmerica'>
-        
     <a href=' https://onetreeplanted.org/collections/north-america' id='northAmercia'>
     <img alt="North America" src="images/northamerica.jpeg"/></a>
     </div>
@@ -32,9 +32,10 @@ const About = () => {
     <a href='https://onetreeplanted.org/collections/africa'id='Africa'><img alt="Africa" src="images/africa.jpeg"/></a>
     </div>
 
-    <div className='pacific'></div>
+    <div className='pacific'>
     <a href='https://onetreeplanted.org/collections/the-pacific' id='pacific'>
     <img alt="Pacific" src="images/pacific.jpeg"/></a>
+    </div>
     </div>
     
     

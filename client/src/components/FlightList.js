@@ -4,6 +4,7 @@ import FlightDetail from "./FlightDetail";
 import Modal from "react-modal";
 import UserGraph from "./UserGraph";
 import Map2 from "./Map2";
+import './FlightList.css'
 
 const FlightList = ({ userFlights, removeFlight, data }) => {
   const [selectedTrip, setSelectedTrip] = useState(null);
@@ -33,9 +34,20 @@ const FlightList = ({ userFlights, removeFlight, data }) => {
 
   return (
     <div>
-      <h2>FlightList</h2>
-      <p>My Trips</p>
+      <h1 className="page-header">My Trip Portal.</h1>
+      <h2><i className="fa-solid fa-plane fa-sm" style={{ color: "#ffffff"}}></i>  My Trips.</h2>
+      <div className="graph-and-list-container">
+        <div className="list-container">
       {allFlights}
+      </div>
+      <div className="graph">
+      <h2>My Emissions.</h2>
+      <UserGraph data={data} userFlights={userFlights}/> 
+      <h2>Flight Map.</h2>
+      <Map2 className="map"/>
+      </div>
+      </div>
+      
 
 <Modal
   isOpen={modalIsOpen}
@@ -60,8 +72,7 @@ const FlightList = ({ userFlights, removeFlight, data }) => {
         {selectedTrip && <FlightDetail flight={selectedTrip} />}
       </Modal>
 
-      <UserGraph data={data} userFlights={userFlights}/> 
-      <Map2/>
+    
     </div>
   );
 };

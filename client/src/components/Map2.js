@@ -1,5 +1,6 @@
 import { ComposableMap, Geographies, Geography } from "react-simple-maps"
 import React from 'react'
+import "./Map2.css";
 
 const geoUrl =
 "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"

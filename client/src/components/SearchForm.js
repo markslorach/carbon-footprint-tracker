@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import airports from "../data/airports";
+import "./SearchForm.css";
 
 const SearchForm = ({
   setOrigin,
@@ -49,58 +50,86 @@ const SearchForm = ({
   };
 
   return (
-    <div>
-      <h3>Search Form</h3>
-      <form id="form" onSubmit={handleSubmit}>
-        <label>
-          Origin:
-          <input
-            type="text"
-            onChange={handleOriginChange}
-            value={inputOrigin}
-            list="origin"
-          />
-          <datalist id="origin">
-            {airports.map((airport) => (
-              <option key={airport.code} value={airport.code}>
-                {airport.name}
-              </option>
-            ))}
-          </datalist>
-        </label>
-        <label>
-          Departure Date:
-          <input type="date" onChange={handleDateChange} value={inputDate} />
-        </label>
-        <label>
-          Destination:
-          <input
-            type="text"
-            onChange={handleDestinationChange}
-            value={inputDestination}
-            list="destination"
-          />
-          <datalist id="destination">
-            {airports.map((airport) => (
-              <option key={airport.code} value={airport.code}>
-                {airport.name}
-              </option>
-            ))}
-          </datalist>
-        </label>
-        <label>
-          Arrival Date:
-          <input
-            type="date"
-            onChange={handleArrivalDateChange}
-            value={inputArrivalDate}
-          />
-        </label>
-        <button type="submit" name="submit">
-          Search
-        </button>
+    <>
+    <div className="container">
+      <h1 id="tag-line">Track your travel carbon footprint.</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="origin-input">Origin:</label>
+            <input
+              id="origin-input"
+              className="text-input"
+              type="text"
+              onChange={handleOriginChange}
+              value={inputOrigin}
+              list="origin"
+              placeholder="Enter origin"
+              required
+            />
+            <datalist id="origin">
+              {airports.map((airport) => (
+                <option key={airport.code} value={airport.code}>
+                  {airport.name}
+                </option>
+              ))}
+            </datalist>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="departure-date-input">Departure Date:</label>
+            <input
+              id="departure-date-input"
+              className="date-input"
+              type="date"
+              onChange={handleDateChange}
+              value={inputDate}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="destination-input">Destination:</label>
+            <input
+              id="destination-input"
+              className="text-input"
+              type="text"
+              onChange={handleDestinationChange}
+              value={inputDestination}
+              list="destination"
+              placeholder="Enter destination"
+              required
+            />
+            <datalist id="destination">
+              {airports.map((airport) => (
+                <option key={airport.code} value={airport.code}>
+                  {airport.name}
+                </option>
+              ))}
+            </datalist>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="arrival-date-input">Arrival Date:</label>
+            <input
+              id="arrival-date-input"
+              className="date-input"
+              type="date"
+              onChange={handleArrivalDateChange}
+              value={inputArrivalDate}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <button id="search-button" type="submit" name="submit">
+              Search
+            </button>
+          </div>
+        </div>
       </form>
-    </div>
+      </div>
+    </>
   );
 };
 

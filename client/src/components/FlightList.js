@@ -33,7 +33,26 @@ const FlightList = ({ userFlights, removeFlight, data }) => {
       <h2>FlightList</h2>
       <p>My Trips</p>
       {allFlights}
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+
+<Modal
+  isOpen={modalIsOpen}
+  onRequestClose={closeModal}
+  style={{
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    content: {
+      width: '500px',
+      height: '500px',
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)'
+    }
+  }}
+>
+
+
         <button onClick={closeModal}>close</button>
         {selectedTrip && <FlightDetail flight={selectedTrip} />}
       </Modal>

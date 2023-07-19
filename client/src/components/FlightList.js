@@ -3,6 +3,7 @@ import FlightItem from "./FlightItem";
 import FlightDetail from "./FlightDetail";
 import Modal from "react-modal";
 import UserGraph from "./UserGraph";
+import Map2 from "./Map2";
 
 const FlightList = ({ userFlights, removeFlight, data }) => {
   const [selectedTrip, setSelectedTrip] = useState(null);
@@ -58,6 +59,7 @@ const FlightList = ({ userFlights, removeFlight, data }) => {
       </Modal>
 
       <UserGraph data={data} userFlights={userFlights}/> 
+      <Map2/>
     </div>
   );
 };

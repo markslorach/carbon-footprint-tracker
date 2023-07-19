@@ -5,6 +5,7 @@ import SearchForm from "./SearchForm";
 import UserGraph from "./UserGraph";
 import Modal from "react-modal";
 import "./Home.css";
+import Map2 from "./Map2";
 
 const Home = ({
   setDate,
@@ -73,6 +74,7 @@ const Home = ({
           arrivalDate={arrivalDate}
         />
       </Modal>
+      
     </>
   );
 };

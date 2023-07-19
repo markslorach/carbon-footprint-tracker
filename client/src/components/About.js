@@ -37,8 +37,6 @@ const About = () => {
     <img alt="Pacific" src="images/pacific.jpeg"/></a>
     </div>
     </div>
-    
-    
     </>
   )
 }

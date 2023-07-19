@@ -38,4 +38,7 @@ img:hover {
   .region-title {
     margin-top: 100px;
   }
+  .aboutContainer {
+    padding-bottom: 50px;
+  }
 }

@@ -13,7 +13,6 @@ const UserGraph = ({userFlights}) => {
       return flight
     })
     console.log(flights)
-    // flights.sort((a,b) => Date.parse(b) - Date.parse(a))
 
     const sortedFlights = flights.sort(function(a, b) {
       var c = new Date(a.date);

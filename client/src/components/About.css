@@ -33,3 +33,9 @@ img:hover {
     margin-right: 40px;
     color: white;
 }
+
+@media (max-width: 900px) {
+  .region-title {
+    margin-top: 100px;
+  }
+}

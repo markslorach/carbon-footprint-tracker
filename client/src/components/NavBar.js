@@ -14,19 +14,21 @@ const NavBar = () => {
       <div className="links-container">
         <ul>
           <li>
-            <Link className="nav-links" to="/">
+            <Link className="nav-links" id="home" to="/">
               Home
             </Link>
           </li>
           <li>
-            <Link className="nav-links" to="/FlightList">
-              Your Trips
+            <Link className="nav-links" id="my-trips" to="/FlightList">
+              My Trips
             </Link>
           </li>
           <li>
-            <Link className="nav-links" id="plant-a-tree" to="/about">
-              Plant A Tree
-            </Link>
+            <button className="nav-btn">
+              <Link className="nav-links" id="plant-a-tree" to="/about">
+                Plant A Tree
+              </Link>
+            </button>
           </li>
         </ul>
       </div>

@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import FlightSearchResult from "./FlightSearchResult";
-import FlightList from "./FlightList";
 import SearchForm from "./SearchForm";
-import UserGraph from "./UserGraph";
 import Modal from "react-modal";
 import "./Home.css";
-import Map2 from "./Map2";
 
 const Home = ({
   setDate,
@@ -18,11 +15,10 @@ const Home = ({
   emissions,
   searchSuccessful,
   addSearchedFlight,
-  userFlights,
   arrivalDate,
   setArrivalDate,
 }) => {
-  const data = [2, 3, 4, 5];
+  
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -54,8 +50,8 @@ const Home = ({
             backgroundColor: "rgba(0, 0, 0, 0.5)",
           },
           content: {
-            width: "500px",
-            height: "500px",
+            width: "400px",
+            height: "408px",
             position: "fixed",
             top: "50%",
             left: "50%",
@@ -63,7 +59,6 @@ const Home = ({
           },
         }}
       >
-        <button onClick={closeModal}>close</button>
         <FlightSearchResult
           origin={origin}
           destination={destination}

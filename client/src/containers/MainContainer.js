@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-import SearchForm from "../components/SearchForm";
 import { getFlights, postFlight } from "../Services/FlightService";
 import FlightList from "../components/FlightList";
-import FlightSearchResult from "../components/FlightSearchResult";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import About from "../components/About";
 import Home from "../components/Home";
-import UserGraph from "../components/UserGraph";
-import Chart from "chart.js/auto";
 
 const MainContainer = () => {
   const [userFlights, setUserFlights] = useState([]);
@@ -102,7 +98,6 @@ const MainContainer = () => {
           />
         </Routes>
       </Router>
-      {/* <Footer/> */}
     </>
   );
 };

@@ -40,6 +40,15 @@ li {
     text-decoration: none;
     color: white;
     font-weight: 600;
+    font-size: 17px;
+}
+
+#home:hover {
+  opacity: 0.8;
+}
+
+#my-trips:hover {
+  opacity: 0.8;
 }
 
 @media (max-width: 800px) {

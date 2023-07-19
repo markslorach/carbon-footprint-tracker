@@ -23,5 +23,19 @@ db.flights.insertMany([
         footprint: 4300,
         date: "2021-11-13",
         arrivalDate: "2021-11-25"
+    },
+    {
+        origin: "GLA",
+        destination: "SYD",
+        footprint: 10400,
+        date: "2020-11-13",
+        arrivalDate: "2020-11-25"
+    },
+    {
+        origin: "BCN",
+        destination: "FRA",
+        footprint: 800,
+        date: "2019-05-02",
+        arrivalDate: "2019-05-20"
     }
 ]);

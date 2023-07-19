@@ -40,6 +40,16 @@ li {
     text-decoration: none;
     color: white;
     font-weight: 600;
-    /* font-size: 18px; */
 }
 
+@media (max-width: 800px) {
+  nav {
+    flex-direction: column;
+    margin-top: 40px;
+    align-items: center;
+  }
+  .links-container {
+    text-align: center;
+    margin-right: -30px;
+  }
+}

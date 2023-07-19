@@ -1,25 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import FlightSearchResult from "./FlightSearchResult";
 import FlightList from "./FlightList";
 import SearchForm from "./SearchForm";
 import UserGraph from "./UserGraph";
-import Modal from 'react-modal';
+import Modal from "react-modal";
+import "./Home.css";
 
-const Home = ({ setDate, date, origin, setOrigin, destination, setDestination, getFlightEmissions, emissions, searchSuccessful, addSearchedFlight, userFlights, arrivalDate, setArrivalDate }) => {
-  const data = [2,3,4,5];
+const Home = ({
+  setDate,
+  date,
+  origin,
+  setOrigin,
+  destination,
+  setDestination,
+  getFlightEmissions,
+  emissions,
+  searchSuccessful,
+  addSearchedFlight,
+  userFlights,
+  arrivalDate,
+  setArrivalDate,
+}) => {
+  const data = [2, 3, 4, 5];
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
     setIsOpen(true);
   }
 
-  function closeModal(){
+  function closeModal() {
     setIsOpen(false);
   }
 
   return (
-    <div>
-      <h2>Main Container</h2>
+    <>
       <SearchForm
         origin={origin}
         setOrigin={setOrigin}
@@ -34,6 +48,19 @@ const Home = ({ setDate, date, origin, setOrigin, destination, setDestination, g
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
+        style={{
+          overlay: {
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+          },
+          content: {
+            width: "500px",
+            height: "500px",
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          },
+        }}
       >
         <button onClick={closeModal}>close</button>
         <FlightSearchResult
@@ -46,10 +73,8 @@ const Home = ({ setDate, date, origin, setOrigin, destination, setDestination, g
           arrivalDate={arrivalDate}
         />
       </Modal>
-
-      
-    </div>
+    </>
   );
-}
+};
 
 export default Home;

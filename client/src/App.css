@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,8 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.5);
 }

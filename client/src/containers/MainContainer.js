@@ -67,7 +67,6 @@ const MainContainer = () => {
     <>
       <Router>
         <NavBar />
-
         <Routes>
           <Route
             path="/"
@@ -103,6 +102,7 @@ const MainContainer = () => {
           />
         </Routes>
       </Router>
+      {/* <Footer/> */}
     </>
   );
 };

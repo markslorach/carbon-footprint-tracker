@@ -1,0 +1,45 @@
+nav {
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  justify-content: space-between;
+}
+
+#logo-colour {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  display: inline;
+  margin-right: 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+}
+
+#plant-a-tree {
+  color: #07203c;
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.nav-links {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    /* font-size: 18px; */
+}
+

@@ -3,7 +3,7 @@ import './About.css';
 const About = () => {
   return (
     <>
-    <h3>Where we plant </h3>
+    <h3>BY REGION</h3>
     <div className='aboutContainer'>
 
     <div className='northAmerica'>

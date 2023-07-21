@@ -110,7 +110,7 @@ const SearchForm = ({
           </div>
 
           <div className="form-group">
-            <label htmlFor="arrival-date-input">Arrival Date:</label>
+            <label htmlFor="arrival-date-input">Return Date:</label>
             <input
               id="arrival-date-input"
               className="date-input"

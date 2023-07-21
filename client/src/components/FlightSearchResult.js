@@ -21,7 +21,7 @@ const FlightSearchResult = ({
       <p><b>Departure Date:</b> {date}</p>
       <p><b>Arrival Date:</b> {arrivalDate}</p>
       <p><i class="fa-solid fa-tree fa-xl" style={{color: '#79d985'}}></i></p>
-      <p>You will need to plant <b>{Math.round((emissions * 0.7) / 21)}</b> trees to offset your journey. Click below to plant today!</p>
+      <p>You will need to plant <b>{Math.round((emissions * 0.7) / 21)}</b> trees to offset your journey.</p>
       
         <button id="add-to-trips-button"
           onClick={() => {

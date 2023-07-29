@@ -52,7 +52,7 @@ npm install
 npm run server:dev
 ```
 
-Once the application is up and running, you can access it through your web browser on http://localhost:3000 The main features of the application include:
+Once the application is up and running, you can access it through your web browser on http://localhost:3000
 
 ## Prerequisites
 

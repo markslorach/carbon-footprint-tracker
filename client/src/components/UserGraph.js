@@ -12,15 +12,12 @@ const UserGraph = ({userFlights}) => {
     const flights = userFlights.map((flight) => {
       return flight
     })
-    console.log(flights)
 
     const sortedFlights = flights.sort(function(a, b) {
       var c = new Date(a.date);
       var d = new Date(b.date);
       return d-c;
   });
-    console.log(`flights sorted`)
-    console.log(sortedFlights)
 
     labels.sort((a,b) => Date.parse(b) - Date.parse(a))
 
@@ -32,20 +29,15 @@ const UserGraph = ({userFlights}) => {
       return flight.footprint * 100;
 })
 
-  const getOriginDestination = userFlights.filter((flight) => {
-    return `${flight.origin} ${flight.destination}`
-})
-
     const options = {
       plugins: {
         tooltip:{
           callbacks: {
             beforeTitle: function(context){
               let index = context[0].dataIndex
-              // return console.log(context[0].dataIndex)
               return `${(sortedFlights[index].origin)} => ${(sortedFlights[index].destination)}`
             },
-            title: function(context){
+            title: function(){
               return null;
             }
           }
@@ -84,7 +76,7 @@ const UserGraph = ({userFlights}) => {
             if(!context.chart.chartArea){
               return;
             }
-            const {ctx, data, chartArea: {top, bottom}} = context.chart;
+            const {ctx, chartArea: {top, bottom}} = context.chart;
             const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
             gradientBg.addColorStop(0, bgColor[0])
             gradientBg.addColorStop(0.3, bgColor[1])
@@ -100,7 +92,7 @@ const UserGraph = ({userFlights}) => {
             if(!context.chart.chartArea){
               return;
             }
-            const {ctx, data, chartArea: {top, bottom}} = context.chart;
+            const {ctx, chartArea: {top, bottom}} = context.chart;
             const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
             gradientBg.addColorStop(0, bgColor[0])
             gradientBg.addColorStop(0.3, bgColor[1])

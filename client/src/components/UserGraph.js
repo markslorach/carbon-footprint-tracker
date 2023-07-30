@@ -9,6 +9,9 @@ const UserGraph = ({userFlights}) => {
     const labels = userFlights.map((flight) => {
               return flight.date;
             })
+
+    labels.sort((a,b) => Date.parse(b) - Date.parse(a))
+    
     const flights = userFlights.map((flight) => {
       return flight
     })
@@ -18,8 +21,6 @@ const UserGraph = ({userFlights}) => {
       var d = new Date(b.date);
       return d-c;
   });
-
-    labels.sort((a,b) => Date.parse(b) - Date.parse(a))
 
     const footprintData = userFlights.map((flight) => {
             return flight.footprint;

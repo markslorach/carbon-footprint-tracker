@@ -119,7 +119,7 @@ const UserGraph = ({userFlights}) => {
               if(!context.chart.chartArea){
                 return;
               }
-              const {ctx, data, chartArea: {top, bottom}} = context.chart;
+              const {ctx, chartArea: {top, bottom}} = context.chart;
               const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
               gradientBg.addColorStop(0, bgColor[0])
               gradientBg.addColorStop(0.7, bgColor[1])
